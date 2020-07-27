@@ -1,0 +1,12 @@
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\bin\Debug\netcoreapp3.1\MealDB1.Repositories.deps.json
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\bin\Debug\netcoreapp3.1\MealDB1.Repositories.dll
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\bin\Debug\netcoreapp3.1\MealDB1.Repositories.pdb
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\bin\Debug\netcoreapp3.1\MealDB1.Entities.dll
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\bin\Debug\netcoreapp3.1\MealDB1.Entities.pdb
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.csprojAssemblyReference.cache
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.AssemblyInfo.cs
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.csproj.CopyComplete
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.dll
+C:\Users\hp\Desktop\MealDB1\MealDB1.Repositories\obj\Debug\netcoreapp3.1\MealDB1.Repositories.pdb
