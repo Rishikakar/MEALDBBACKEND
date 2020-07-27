@@ -24,69 +24,65 @@ namespace MealDB1.API.Controllers
         [HttpGet("Meals")]
         public IActionResult Meals()
         {
-            return Ok(repository.allMeals());
+            return Ok(repository.AllMeals());
         }
         [HttpGet("LatestMeals")]
         public IActionResult LatestMeals()
         {
-            return Ok(repository.getLatestMeals());
+            return Ok(repository.GetLatestMeals());
         }
         [HttpGet("MainIngredients")]
         public IActionResult MainIngredients()
         {
-            return Ok(repository.getMainIngredients());
+            return Ok(repository.GetMainIngredients());
         }
         [HttpGet("Countries")]
         public IActionResult Countries()
         {
-            return Ok(repository.getCountries());
+            return Ok(repository.GetCountries());
         }
         [HttpGet("RandomMeals")]
         public IActionResult RandomMeals()
         {
-            return Ok(repository.getRandomMeals());
+            return Ok(repository.GetRandomMeals());
         }
         [HttpGet("MealById/{mealId}")]
         public IActionResult MealById(int mealId)
         {
-            return Ok(repository.getMealById(mealId));
+            return Ok(repository.GetMealById(mealId));
         }
         [HttpGet("IngredientById/{ingredientId}")]
         public IActionResult IngredientById(int ingredientId)
         {
-            return Ok(repository.getIngredientById(ingredientId));
+            return Ok(repository.GetIngredientById(ingredientId));
         }
         [HttpGet("CountryById/{countryId}")]
         public IActionResult CountryById(int countryId)
         {
-            return Ok(repository.getCountryById(countryId));
+            return Ok(repository.GetCountryById(countryId));
         }
 
         [HttpPost("Register")]
         [EnableCors]
         public IActionResult Register(RegistrationRequest data)
         {
-            return Ok(repository.doRegisteration(data));
+            return Ok(repository.DoRegisteration(data));
         }
         [HttpPost("Login")]
         public IActionResult Login(LoginRequest data)
         {
-            return Ok(repository.validateLogin(data));
+            return Ok(repository.ValidateLogin(data));
         }
         [HttpPost("Search")]
         public IActionResult Search(SearchRequestDTO data)
         {
-            return Ok(repository.getSearchedMeals(data));
+            return Ok(repository.GetSearchedMeals(data));
         }
-        [HttpPost("SearchByFirstLetter")]
-        public IActionResult SearchByFirstLetter(SearchRequestDTO data)
-        {
-            return Ok(repository.getSearchedMealsByFirstLetter(data));
-        }
+       
         [HttpGet("searching/{search}")]
         public IActionResult Searching(string search)
         {
-            return Ok(repository.getSearchList(search));
+            return Ok(repository.GetSearchList(search));
         }
     }
 

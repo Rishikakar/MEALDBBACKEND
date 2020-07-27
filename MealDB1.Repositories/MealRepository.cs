@@ -21,7 +21,7 @@ namespace MealDB1.Repositories
 
        
 
-        public List<CountrysDTO> getCountries()
+        public List<CountrysDTO> GetCountries()
         {
             List<CountrysDTO> countrys = new List<CountrysDTO>();
             var countries = _db.Country.ToList();
@@ -37,7 +37,7 @@ namespace MealDB1.Repositories
             return countrys;
         }
 
-        public List<CountryByIdDTO> getCountryById(int countryId)
+        public List<CountryByIdDTO> GetCountryById(int countryId)
         {
             List<CountryByIdDTO> MealsBasedOnCountryId = new List<CountryByIdDTO>();
             var list = _db.Country.Include("Meals").Where(a => a.Id == countryId);
@@ -57,7 +57,7 @@ namespace MealDB1.Repositories
             }
             return MealsBasedOnCountryId;
         }
-        List<MealsDTO> IMealRepository.allMeals()
+        List<MealsDTO> IMealRepository.AllMeals()
         {
             List<MealsDTO> MealsList = new List<MealsDTO>();
             var meals = _db.Meals.ToList();
@@ -74,7 +74,7 @@ namespace MealDB1.Repositories
             return MealsList;
         }
 
-        public List<IngredientByIdDTO> getIngredientById(int ingredientId)
+        public List<IngredientByIdDTO> GetIngredientById(int ingredientId)
         {
             List<IngredientByIdDTO> MealsBasedOnIngredient = new List<IngredientByIdDTO>();
             var lists = _db.MainIngredients.Include("Meals").Where(a => a.Id == ingredientId);
@@ -101,7 +101,7 @@ namespace MealDB1.Repositories
             return MealsBasedOnIngredient;
         }
 
-        public List<MealsDTO> getLatestMeals()
+        public List<MealsDTO> GetLatestMeals()
         {
             List<MealsDTO> MealsList = new List<MealsDTO>();
             var meals = _db.Meals.ToList();
@@ -123,7 +123,7 @@ namespace MealDB1.Repositories
             return MealsList;
         }
 
-        public List<MainIngredientsDTO> getMainIngredients()
+        public List<MainIngredientsDTO> GetMainIngredients()
         {
             var ingredients = _db.MainIngredients.ToList();
             List<MainIngredientsDTO> mainIngredients = new List<MainIngredientsDTO>();
@@ -139,7 +139,7 @@ namespace MealDB1.Repositories
             return mainIngredients;
         }
 
-        public List<MealByIdDTO> getMealById(int mealId)
+        public List<MealByIdDTO> GetMealById(int mealId)
         {
             List<MealByIdDTO> meal = new List<MealByIdDTO>();
             var meals = _db.Meals.Include("MainIngredients").Where(a => a.Id == mealId).ToList();
@@ -170,7 +170,7 @@ namespace MealDB1.Repositories
             return meal;
         }
 
-        public List<MealsDTO> getRandomMeals()
+        public List<MealsDTO> GetRandomMeals()
         {
             List<MealsDTO> MealsList = new List<MealsDTO>();
             var meals = _db.Meals.ToList();
@@ -205,7 +205,7 @@ namespace MealDB1.Repositories
             return MealsList;
         }
 
-        public List<MealsDTO> getSearchedMeals(SearchRequestDTO request)
+        public List<MealsDTO> GetSearchedMeals(SearchRequestDTO request)
         {
             List<MealsDTO> MealsList = new List<MealsDTO>();
             if (request != null)
@@ -229,30 +229,8 @@ namespace MealDB1.Repositories
             return MealsList;
         }
 
-        public List<MealsDTO> getSearchedMealsByFirstLetter(SearchRequestDTO request)
-        {
-            List<MealsDTO> MealsListByFirstLetter = new List<MealsDTO>();
-            if (request != null)
-            {
-                var meals = _db.Meals.ToList();
-                foreach (var item in meals)
-                {
-                    if (item.MealName.StartsWith(request.SearchKeyWord.ToUpper()) || item.MealName.StartsWith(request.SearchKeyWord.ToLower()))
-                    {
-                        MealsListByFirstLetter.Add(new MealsDTO()
-                        {
-                            MealName = item.MealName,
-                            MealId = item.Id,
-                            MealUrl = item.MealImageUrl,
-                            MealDescription = item.MealDescription
-                        }
-                        );
-                    }
-                }
-            }
-            return MealsListByFirstLetter;
-        }
-        public bool doRegisteration(RegistrationRequest request)
+       
+        public bool DoRegisteration(RegistrationRequest request)
         {
             if (request != null)
             {
@@ -268,7 +246,7 @@ namespace MealDB1.Repositories
             return false;
         }
 
-        public bool validateLogin(LoginRequest request)
+        public bool ValidateLogin(LoginRequest request)
         {
             var log = _db.UserInfos.ToList();
             if (request != null)
@@ -287,7 +265,7 @@ namespace MealDB1.Repositories
             return false;
         }
 
-        public List<MealsDTO> getSearchList(string search)
+        public List<MealsDTO> GetSearchList(string search)
         {
             List<MealsDTO> MealsList = new List<MealsDTO>();
             if (search != null)
