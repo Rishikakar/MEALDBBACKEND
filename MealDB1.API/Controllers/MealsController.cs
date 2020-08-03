@@ -84,6 +84,21 @@ namespace MealDB1.API.Controllers
         {
             return Ok(repository.GetSearchList(search));
         }
+        [HttpPost("SearchByFirstLetter")]
+        public IActionResult SearchByFirstLetter(SearchRequestDTO data)
+        {
+            return Ok(repository.GetSearchedMealsByFirstLetter(data));
+        }
+        [HttpPost("AdminInputForIngredient")]
+        public IActionResult AdminInputForIngredient(AddIngredientRequestByAdmin data)
+        {
+            return Ok(repository.AddIngredient(data));
+        }
+        [HttpPost("AdminInputForMeals")]
+        public IActionResult AdminInputForMeals(AddMealRequestByAdmin data)
+        {
+            return Ok(repository.AddMeal(data));
+        }
     }
 
 }

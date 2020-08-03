@@ -36,6 +36,29 @@ namespace MealDB1.Repositories
             }
             return countrys;
         }
+        public List<MealsDTO> GetSearchListByLetter(string search)
+        {
+            List<MealsDTO> MealsListByFirstLetter = new List<MealsDTO>();
+            if (search != null)
+            {
+                var meals = _db.Meals.ToList();
+                foreach (var item in meals)
+                {
+                    if (item.MealName.StartsWith(search.ToUpper()) || item.MealName.StartsWith(search.ToLower()))
+                    {
+                        MealsListByFirstLetter.Add(new MealsDTO()
+                        {
+                            MealName = item.MealName,
+                            MealId = item.Id,
+                            MealUrl = item.MealImageUrl,
+                            MealDescription = item.MealDescription
+                        }
+                        );
+                    }
+                }
+            }
+            return MealsListByFirstLetter;
+        }
 
         public List<CountryByIdDTO> GetCountryById(int countryId)
         {
@@ -287,6 +310,69 @@ namespace MealDB1.Repositories
                 }
             }
             return MealsList;
+        }
+        public bool AddMeal(AddMealRequestByAdmin requestByAdmin)
+        {
+            if (requestByAdmin != null)
+            {
+                Meals meals = new Meals();
+                meals.MealName = requestByAdmin.MealName;
+                meals.MealImageUrl = requestByAdmin.MealImageUrl;
+                meals.MealDescription = requestByAdmin.MealDescription;
+                meals.SubIngredientOne = requestByAdmin.SubIngredientOne;
+                meals.SubIngredientOneUrl = requestByAdmin.SubIngredientOneUrl;
+                meals.SubIngredientTwo = requestByAdmin.SubIngredientTwo;
+                meals.SubIngredientThree = requestByAdmin.SubIngredientThree;
+                meals.SubIngredientFour = requestByAdmin.SubIngredientFour;
+                meals.SubIngredientFourUrl = requestByAdmin.SubIngredientFourUrl;
+                meals.SubIngredientFive = requestByAdmin.SubIngredientFive;
+                meals.SubIngredientFiveUrl = requestByAdmin.SubIngredientFiveUrl;
+                meals.SubIngredientSix = requestByAdmin.SubIngredientSix;
+                meals.SubIngredientSixUrl = requestByAdmin.SubIngredientSixUrl;
+                meals.CountrysId = requestByAdmin.CountrysId;
+                meals.MainIngredientsId = requestByAdmin.MainIngredientsId;
+                _db.Meals.Add(meals);
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool AddIngredient(AddIngredientRequestByAdmin request)
+        {
+            if (request != null)
+            {
+                MainIngredients addingIngredient = new MainIngredients();
+                addingIngredient.MainIngredientDescription = request.MainIngredientDescription;
+                addingIngredient.MainIngredientImageUrl = request.MainIngredientImage;
+                addingIngredient.MainIngredientName = request.MainIngredientName;
+                _db.MainIngredients.Add(addingIngredient);
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public List<MealsDTO> GetSearchedMealsByFirstLetter(SearchRequestDTO request)
+        {
+            List<MealsDTO> MealsListByFirstLetter = new List<MealsDTO>();
+            if (request != null)
+            {
+                var meals = _db.Meals.ToList();
+                foreach (var item in meals)
+                {
+                    if (item.MealName.StartsWith(request.SearchKeyWord.ToUpper()) || item.MealName.StartsWith(request.SearchKeyWord.ToLower()))
+                    {
+                        MealsListByFirstLetter.Add(new MealsDTO()
+                        {
+                            MealName = item.MealName,
+                            MealId = item.Id,
+                            MealUrl = item.MealImageUrl,
+                            MealDescription = item.MealDescription
+                        }
+                        );
+                    }
+                }
+            }
+            return MealsListByFirstLetter;
         }
     }
 }

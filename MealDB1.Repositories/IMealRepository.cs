@@ -20,7 +20,11 @@ namespace MealDB1.Repositories
         bool DoRegisteration(RegistrationRequest data);
         bool ValidateLogin(LoginRequest data);
         List<MealsDTO> GetSearchedMeals(SearchRequestDTO data);
-       
+        List<MealsDTO> GetSearchedMealsByFirstLetter(SearchRequestDTO data);
+        bool AddIngredient(AddIngredientRequestByAdmin data);
+
         List<MealsDTO> GetSearchList(string search);
+        List<MealsDTO> GetSearchListByLetter(string search);
+        bool AddMeal(AddMealRequestByAdmin data);
     }
 }
