@@ -19,7 +19,7 @@ namespace MealDB1.Repositories
             this._db = db;
         }
 
-       
+
 
         public List<CountrysDTO> GetCountries()
         {
@@ -252,7 +252,7 @@ namespace MealDB1.Repositories
             return MealsList;
         }
 
-       
+
         public bool DoRegisteration(RegistrationRequest request)
         {
             if (request != null)
@@ -337,20 +337,8 @@ namespace MealDB1.Repositories
             }
             return false;
         }
-        public bool AddIngredient(AddIngredientRequestByAdmin request)
-        {
-            if (request != null)
-            {
-                MainIngredients addingIngredient = new MainIngredients();
-                addingIngredient.MainIngredientDescription = request.MainIngredientDescription;
-                addingIngredient.MainIngredientImageUrl = request.MainIngredientImage;
-                addingIngredient.MainIngredientName = request.MainIngredientName;
-                _db.MainIngredients.Add(addingIngredient);
-                _db.SaveChanges();
-                return true;
-            }
-            return false;
-        }
+
+
         public List<MealsDTO> GetSearchedMealsByFirstLetter(SearchRequestDTO request)
         {
             List<MealsDTO> MealsListByFirstLetter = new List<MealsDTO>();
